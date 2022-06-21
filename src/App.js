@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import './App.css';
+import {PictureContainer} from "./components/pictureContainer";
 
 const App =()=> {
 
@@ -24,13 +25,10 @@ const App =()=> {
       
       {pictures.map((item, index)=> {
         return(
-        <div>
-          <h2>{item.author}</h2>
-          <img className="photoContainer" src={item.download_url} alt="alt text"/>
-        </div>
+        <PictureContainer author={item.author} url={item.download_url} />
         )
       })}
-      
+
     </div>
   );
 }
