@@ -11,7 +11,7 @@ export const fetchPhotos = async (setter)=>{
 //create user fetch request
 export const createUser = async (username, email, password, setter)=>{
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}`, {//Note: 'user' might not be needed
+        const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
             method:"POST",
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -27,3 +27,4 @@ export const createUser = async (username, email, password, setter)=>{
         console.log(error);
     }
 }
+

@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import './App.css';
 import {PictureContainer} from "./components/pictureContainer";
 import { fetchPhotos } from "./utils";
-import { LogOrSign } from "./components/logOrSign";
+import { LogOrSign, LogOrSignOut } from "./components/logOrSign";
+
 
 const App =()=> {
 
@@ -16,7 +17,9 @@ const App =()=> {
   return (
     <div className="App">
       <h1>{user ? user: "Landing Page"}</h1>
-      <LogOrSign setter={setUser}/>
+      
+      {/*check if user logged in or out and display appropriate options */}
+      {user ? <LogOrSignOut user={user} setUser={setUser}/>: <LogOrSign setter={setUser}/>}
       {pictures.map((item, index)=> {
         return(
         <PictureContainer key={index} author={item.author} url={item.download_url} />
