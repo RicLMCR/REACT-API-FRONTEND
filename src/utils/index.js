@@ -1,3 +1,4 @@
+// fetch photos
 export const fetchPhotos = async (setUser)=>{
     try {
     const res = await fetch("https://picsum.photos/v2/list?page=2&limit=10");
@@ -9,7 +10,7 @@ export const fetchPhotos = async (setUser)=>{
 };
 
 //create user fetch request
-export const createUser = async (username, email, password, setUser, setJwt)=>{
+export const createUser = async (username, email, password, setUser)=>{
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {//Note: 'user' might not be needed
             method:"POST",
@@ -21,15 +22,14 @@ export const createUser = async (username, email, password, setUser, setJwt)=>{
             }),
         });
         const data = await res.json();
-        setUser(data.newUser.username);  
-        setJwt(data);      
+        setUser(data.newUser.username);     
     } catch (error) {
         console.log(error);
     }
 }
 
 //login fetch request
-export const logInUser = async (username, password, setUser, setJwt)=>{
+export const logInUser = async (username, password, setUser)=>{
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}login`, {
             method: "POST",
@@ -41,8 +41,6 @@ export const logInUser = async (username, password, setUser, setJwt)=>{
         })
         const data = await res.json();
         setUser(data.user.username)
-        setJwt(data);
-        console.log(data.user.username);
         
     } catch (error) {
         console.log(error);

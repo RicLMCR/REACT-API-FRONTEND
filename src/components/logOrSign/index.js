@@ -1,55 +1,51 @@
 import { useState } from "react"
 import { createUser, logInUser} from "../../utils";
 
-//register/create user function
-export const SignUp = ({setUser, setJwt})=>{
-    const [username, setUsername]=useState();
-    const [email, setEmail]=useState();
-    const [password, setPassword]=useState();
 
-    // passes createUser function and values to back end - including setUser to show user now logged in
-    const submitHandler=(e)=>{
+//register or login dual functional component
+export const LogOrSign = ({setUser}) => {
+    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    try {
+        // pass user registration info to rest API. setUser and setJwt to show user is logged in and display name on regsitering
+        const submitHandlerCreate=(e)=>{
         e.preventDefault();
-        createUser(username, email, password, setUser, setJwt);
+        createUser(username, email, password, setUser);
     }
+    // passes login details to rest API. setUser and setJwt to show user is logged in and display name on regsitering
+        const submitHandlerLogin = (e)=>{
+        e.preventDefault();
+        logInUser(username, password, setUser);
+    };
 
-    return(
-        <form onSubmit={submitHandler}>
+    return (
+        <div>
+            <form onSubmit={submitHandlerCreate}>
             <input placeholder="username" onChange={(e)=>setUsername(e.target.value)}></input>
             <input placeholder="email" onChange={(e)=>setEmail(e.target.value)}></input>
             <input placeholder="password" onChange={(e)=>setPassword(e.target.value)}></input>
             <button type="submit">Sign Up</button>
         </form>
-    )
-
-};
-
-export const LogIn = ({setUser, setJwt})=>{
-    const [username, setUsername]=useState();//consider placing this in app.js in future and passed down to multiple components
-    const [password, setPassword]=useState();
-
-    const submitHandler = (e)=>{
-        e.preventDefault();
-        logInUser(username, password, setUser, setJwt);
-    };
-
-    return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandlerLogin}>
             <input placeholder="username" onChange={(e)=>setUsername(e.target.value)}/>
             <input placeholder="password" onChange={(e)=>setPassword(e.target.value)}/>
             <button type="submit">Log In</button>
         </form>
+        </div>
     )
-
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 //logout function
-export const SignOut = ({user, setUser, setJwt})=>{
+export const SignOut = ({user, setUser})=>{
+
+    // set's user value to "" and jwt token back to false to remove all user data
     const submitHandler = (e)=>{
         e.preventDefault();
         setUser();
-        setJwt(false);
-
     }
     return(
         <button onClick={(e)=>submitHandler(e)}>Log Out</button>
