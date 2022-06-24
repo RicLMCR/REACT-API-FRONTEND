@@ -1,6 +1,6 @@
 .logOrSign{
     margin: 0 auto 0 auto;
-    padding-bottom: 25px;
+    padding: 25px 0 25px 0;
     width:30%;
     height: auto;
     background-color: white;
@@ -48,7 +48,6 @@
     align-items: center;
 }
 .switchLogSignButton{
-    
     border:none;
     background-color: white;
     color: blue;
@@ -74,4 +73,8 @@
 
 h2 {
     color:grey;
+}
+
+img{
+    margin: 5px 0 5px 0;
 }
