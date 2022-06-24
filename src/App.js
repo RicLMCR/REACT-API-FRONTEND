@@ -2,8 +2,7 @@ import {useState, useEffect} from "react";
 import './App.css';
 import {PictureContainer} from "./components/pictureContainer";
 import { fetchPhotos } from "./utils";
-import { SignOut, LogOrSign } from "./components/logOrSign";
-
+import { SignOut, LogOrSign, Update, Delete } from "./components/logOrSign";
 
 const App =()=> {
 
@@ -17,15 +16,16 @@ const App =()=> {
 
   return (
     <div className="App">
-      <h1>{user ? user: "Landing Page"}</h1>
+      <p className="landingP">{user ? user: "Log in to Continue"}</p>
       
-      {user ? <div><SignOut user={user} setUser={setUser}/> {pictures.map((item, index)=> {
+      {user ? 
+      <div><SignOut user={user} setUser={setUser}/><Delete user={user} setUser={setUser}/><Update />
+      {pictures.map((item, index)=> {
         return(
-          <PictureContainer key={index} author={item.author} url={item.download_url} />
-        )
-      })}</div>: <div><LogOrSign user={user} setUser={setUser} /></div>}
-      
-
+            <PictureContainer key={index} author={item.author} url={item.download_url} />
+        )})}</div>
+      : 
+      <div><LogOrSign user={user} setUser={setUser} /></div>}
     </div>
   );
 }

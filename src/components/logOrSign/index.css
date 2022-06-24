@@ -1,0 +1,77 @@
+.logOrSign{
+    margin: 0 auto 0 auto;
+    padding-bottom: 25px;
+    width:30%;
+    height: auto;
+    background-color: white;
+    border: .5px solid rgb(208, 208, 208);
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.logOrSignForm{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logOrSignInput{
+    margin: 5px 0 5px 0;
+    width: 80%;
+    height: 40px;
+    border: .5px solid rgb(208, 208, 208);
+    border-radius: 2px;
+}
+
+.loginButton{
+    margin: 5px 0 5px 0;
+    width: 82%;
+    height: 30px;
+        background-color: blue;
+        border:none;
+    color:white;
+    font-weight: 600;
+}
+
+.loginButton:hover{
+    background-color: rgb(79, 79, 255);
+}
+
+.switchLogSign{
+    margin: 5px 0 5px 0;
+    width: 90%;
+    border: .5px solid rgb(208, 208, 208);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.switchLogSignButton{
+    
+    border:none;
+    background-color: white;
+    color: blue;
+    border: none;
+    font-size: large;
+    font-weight: 700;
+}
+
+.dividerWrap{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.divider{
+    margin: 0 10px;
+    width: 35%;
+    height: 3px;
+    background-color: rgb(204, 204, 204);
+}
+
+h2 {
+    color:grey;
+}

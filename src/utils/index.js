@@ -26,7 +26,7 @@ export const createUser = async (username, email, password, setUser)=>{
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 //login fetch request
 export const logInUser = async (username, password, setUser)=>{
@@ -38,10 +38,33 @@ export const logInUser = async (username, password, setUser)=>{
                 username: username,
                 password: password
             }),
+        });
+        const data = await res.json();
+        setUser(data.user.username);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+//delete user fetch request
+export const deleteUser = async (username, setUser)=>{
+    try {
+        const res = await fetch(`${process.env.REACT_APP_REST_API}${username}`, {
+            method: 'DELETE',
+            headers: {"Content-Type": "application/json"}
         })
         const data = await res.json();
-        setUser(data.user.username)
-        
+        // setUser(data.user.username);
+        console.log(username, "has been deleted");
+        } catch (error) {
+        console.log(error);
+    }
+}
+
+//update user details fetch request
+export const updUser = async (username, email)=>{
+    try {
+        console.log("updUser fetch request");
     } catch (error) {
         console.log(error);
     }
