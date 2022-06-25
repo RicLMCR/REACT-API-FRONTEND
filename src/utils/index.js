@@ -62,16 +62,18 @@ export const deleteUser = async (username)=>{
 }
 
 //update user details fetch request
-export const updUser = async (username, newUserName)=>{
+export const updUser = async (username, newusername, setUser)=>{
     try {
-        const res = await fetch(`${process.env.REACT_APP_REST_API}`{
+        const res = await fetch(`${process.env.REACT_APP_REST_API}`,{
             method: 'PUT',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: username,
-
+                newusername: newusername
             })
         })
+        const data = await res.json();
+        setUser(data.response.newusername);
         console.log("updUser fetch request");
     } catch (error) {
         console.log(error);
