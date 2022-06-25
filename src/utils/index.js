@@ -47,7 +47,7 @@ export const logInUser = async (username, password, setUser)=>{
 };
 
 //delete user fetch request
-export const deleteUser = async (username, setUser)=>{
+export const deleteUser = async (username)=>{
     try {
         const res = await fetch(`${process.env.REACT_APP_REST_API}${username}`, {
             method: 'DELETE',
@@ -62,8 +62,16 @@ export const deleteUser = async (username, setUser)=>{
 }
 
 //update user details fetch request
-export const updUser = async (username, email)=>{
+export const updUser = async (username, newUserName)=>{
     try {
+        const res = await fetch(`${process.env.REACT_APP_REST_API}`{
+            method: 'PUT',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                username: username,
+
+            })
+        })
         console.log("updUser fetch request");
     } catch (error) {
         console.log(error);
