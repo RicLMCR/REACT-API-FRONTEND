@@ -73,7 +73,8 @@ export const updUser = async (username, newusername, setUser)=>{
             })
         })
         const data = await res.json();
-        setUser(data.response.newusername);
+        setUser(data.response.username);
+        console.log(data.response.username);
         console.log("updUser fetch request");
     } catch (error) {
         console.log(error);

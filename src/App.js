@@ -15,11 +15,11 @@ const App =()=> {
   },[]);
 
   return (
-    <div className="App">
+    <div className={user ? "App bgWhite" : "App bgRed"}>
       <p className="landingP">{user ? "": "Log in to Continue"}</p>
       
       {user ? 
-      <div><div className="headerWrap"><SignOut user={user} setUser={setUser}/><Delete user={user} setUser={setUser}/><Update user={user}/></div>
+      <div><div className="headerWrap">{user}<SignOut user={user} setUser={setUser}/><Delete user={user} setUser={setUser}/><Update user={user}/></div>
       {pictures.map((item, index)=> {
         return(
             <PictureContainer key={index} author={item.author} url={item.download_url} />

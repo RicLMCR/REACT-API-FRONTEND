@@ -86,7 +86,7 @@ export const Delete = ({user, setUser})=>{
     )
 }
 
-export const Update = ({user})=>{
+export const Update = ({user, setUser})=>{
 
     const [newUserName, setNewUserName] = useState();
 
@@ -95,8 +95,7 @@ export const Update = ({user})=>{
         e.preventDefault();
         console.log("original name:", user, "new name:", newUserName);
         updUser(user, newUserName);
-        
-        // setUser(newUserName);
+        // setUser(e.target.value);
     }
 
     return (
