@@ -65,24 +65,20 @@ export const SignOut = ({user, setUser})=>{
         setUser();
     }
     return(
-        <button onClick={(e)=>submitHandler(e)}>Log Out</button>
+        <button className="headerButton" onClick={(e)=>submitHandler(e)} >Log Out</button>
     )
 };
 
 //delete user function
 export const Delete = ({user, setUser})=>{
-    // if user = true then display button, else display delete confirm emssage
-    // get user and pass to API 
-    // on return confirm deletion
-    // and log user out
-    // jwt can be used to ensure mesage stays
+
     const submitHandler = (e)=>{
         e.preventDefault();
         deleteUser(user);
         setUser();
     }
     return (
-        <button onClick={(e)=>submitHandler(e)}>Delete Your Account</button>
+        <button className="headerButton" onClick={(e)=>submitHandler(e)}>Delete Your Account</button>
     )
 }
 
@@ -101,7 +97,7 @@ export const Update = ({user, setUser})=>{
     return (
         <form onSubmit={submitHandler}>
             <input placeholder="update username" onChange={(e)=>setNewUserName(e.target.value)}/>
-            <button type="submit">Submit</button>
+            <button className="headerButton" type="submit">Submit</button>
         </form>
     )
 }

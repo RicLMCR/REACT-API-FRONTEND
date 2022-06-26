@@ -31,16 +31,35 @@ h1,h2,h3, p {
   color: white;
 }
 
+.userHeader{
+  display: flex;
+  justify-self: flex-start;
+}
 
 /* Heading - once user logged in */
 
 .headerWrap{
+  position:fixed;
   width: 100%;
   height:80px;
   background-color: white;
   border: 1px solid rgb(208, 208, 208);
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
   margin-bottom: 10px;
+  box-shadow: 5px 5px 5px;
 }
 
+.headerButton{
+  border: 0;
+  background-color: white;
+  margin: 10px;
+}
+
+.headerButton:hover{
+  border: 0;
+  background-color: white;
+  color: blue;
+  margin: 10px;
+}

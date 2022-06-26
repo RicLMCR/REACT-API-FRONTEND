@@ -6,8 +6,10 @@ return (
     <div className="instaObj">
           <h2>{author}</h2>
           <img className="mainImage" src={url} alt="alt text"/>
-          <div className="functWrap"><p>Functions Here</p></div>
-          <p>Comments</p>
+          <div className="functionWrap"><img src="././utils/instaFunctions.png"/></div>
+          <div className="commentWrap">
+            <input className="commentBox" placeholder=' Add a comment'/>
+          </div>
         </div>
     )   
 }

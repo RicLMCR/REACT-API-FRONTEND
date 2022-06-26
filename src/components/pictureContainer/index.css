@@ -1,8 +1,8 @@
 
-/* Insta Object */
+/* Instagram post container */
 .instaObj{
     width: 800px;
-    height: 980px;
+    height: 880px;
     border: .5px solid rgb(208, 208, 208);
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
@@ -14,6 +14,9 @@
   
   .instaObj>h2{
     padding-left: 2vh;
+    font-weight: 700;
+    color: black;
+    margin:10px 0 10px 0;
   }
 
 .mainImage{
@@ -21,19 +24,27 @@
     height: 800px;
     object-fit: cover;
   }
+
+  .functionWrap{
+    width: 100%;
+    height: 50px;
+  }
   
   .commentWrap{
-    width: 600px;
+    width: 100%;
+    height: 50px;
     display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
     border-top: 1px solid rgb(208, 208, 208);
   }
   
   .commentBox{
-    width:550px;
-    height: auto;
-    border:0;
+    width:100%;
+    height: 50px;
+    border: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
   /* Comment Button */
